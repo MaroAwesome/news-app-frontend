@@ -38,9 +38,13 @@ export class AddNewsComponent implements OnInit {
   async onSubmit() {
     if (this.form.valid) {
       this.news = this.form.value;
-      this.news.poster = await this.toBase64(this.form.value.poster.files[0]);
-
+      this.news.date = new Date();
+      if (this.form.value.poster && this.form.value.poster.files) {
+        this.news.poster = await this.toBase64(this.form.value.poster.files[0]);
+      }
       this.newService.insertNews(this.news).subscribe(res => {
+        console.log(res);
+
         this.closeDialog(true);
       });
     }

@@ -5,7 +5,7 @@ import { HttpClient } from "@angular/common/http";
   providedIn: "root"
 })
 export class NewsAPIsService {
-  private url = "/api/";
+  private url = "https://ec2-18-188-196-102.us-east-2.compute.amazonaws.com";
   constructor(private http: HttpClient) {}
   getAll() {
     return this.http.get(this.url + "/getAll");
