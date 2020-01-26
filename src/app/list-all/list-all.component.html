@@ -1,0 +1,13 @@
+<mat-spinner class="center" *ngIf="news.length === 0"></mat-spinner>
+
+<div class="row">
+  <div class="col-md-4 col-sm-12" *ngFor="let new of news">
+    <app-news-card class="card" [News]="new"></app-news-card>
+  </div>
+
+  <button (click)="openDialog()" class="add-floating" mat-fab color="primary">
+    <i class="material-icons">
+      add
+    </i>
+  </button>
+</div>

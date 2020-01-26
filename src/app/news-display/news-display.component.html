@@ -1,0 +1,29 @@
+<mat-spinner class="center" *ngIf="!news"></mat-spinner>
+
+<div class="" *ngIf="news">
+  <div class="header">
+    <h3 class="">{{ news.title }}</h3>
+    <div class="sub-header row ">
+      <p class="col-6 ">{{ news.type }}</p>
+      <p class="col-6 ">{{ news.date | date: "dd-MMM-yyyy" }}</p>
+    </div>
+  </div>
+  <div class="img-container">
+    <img [src]="news.poster" [alt]="news.title" class="img" />
+  </div>
+  <div class="news-content">
+    <div class="content-header d-flex">
+      <p>Font Size: {{ " " + fontSize + "px" }}</p>
+      <mat-slider
+        thumbLabel
+        value="20"
+        min="1"
+        max="100"
+        (input)="onInputChange($event)"
+      ></mat-slider>
+    </div>
+    <p [style.font-size]="fontSize + 'px'">
+      {{ news.description }}
+    </p>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+.card {
+  margin: 1rem 0;
+}
+.row {
+  margin-right: 0;
+  margin-left: 0;
+}
+.add-floating {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.add-floating:focus {
+  outline: none;
+}

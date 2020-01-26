@@ -1,0 +1,39 @@
+<div class="container ">
+  <h3>Add News</h3>
+  <form class="d-flex flex-column" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput formControlName="title" placeholder="Title" required />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select formControlName="type" placeholder="News Type" required>
+        <mat-option value="Around The World">Around The World</mat-option>
+        <mat-option value="Sport">Sport</mat-option>
+        <mat-option value="Economy">Economy </mat-option>
+        <mat-option value="Animals">Animals</mat-option>
+        <mat-option value="Health">Health</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea
+        matInput
+        formControlName="description"
+        placeholder="Description"
+        required
+      ></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <ngx-mat-file-input
+        formControlName="poster"
+        placeholder="Poster"
+        (change)="onchange()"
+        [accept]="'.png, .jpg ,.jpeg'"
+      ></ngx-mat-file-input>
+      <mat-icon matSuffix>add_photo_alternate</mat-icon>
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary">
+      Add News
+    </button>
+  </form>
+</div>
