@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { MatDialog } from "@angular/material/dialog";
 import { AddNewsComponent } from "../add-news/add-news.component";
+import { NewsAPIsService } from "../news-apis.service";
 
 @Component({
   selector: "app-list-all",
@@ -9,7 +10,7 @@ import { AddNewsComponent } from "../add-news/add-news.component";
   styleUrls: ["./list-all.component.scss"]
 })
 export class ListAllComponent implements OnInit {
-  constructor(private http: HttpClient, public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private newsService: NewsAPIsService) {}
   public news: any = [];
   ngOnInit() {
     this.getNews();
@@ -17,17 +18,15 @@ export class ListAllComponent implements OnInit {
 
   getNews() {
     this.news = [];
-    this.http
-      .get("https://ec2-18-188-196-102.us-east-2.compute.amazonaws.com/getAll")
-      .subscribe(
-        res => {
-          console.log(res);
-          this.news = res;
-        },
-        err => {
-          console.log(err);
-        }
-      );
+    this.newsService.getAll().subscribe(
+      res => {
+        console.log(res);
+        this.news = res;
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(AddNewsComponent, {

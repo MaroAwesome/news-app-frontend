@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { FormGroup, FormControl, Validators, FormArray } from "@angular/forms";
-import { HttpClient } from "@angular/common/http";
+import { NewsAPIsService } from "../news-apis.service";
 
 @Component({
   selector: "app-add-news",
@@ -13,7 +13,7 @@ export class AddNewsComponent implements OnInit {
   public form: FormGroup;
   constructor(
     public dialogRef: MatDialogRef<AddNewsComponent>,
-    private http: HttpClient
+    private newService: NewsAPIsService
   ) {}
 
   ngOnInit() {
@@ -40,7 +40,7 @@ export class AddNewsComponent implements OnInit {
       this.news = this.form.value;
       this.news.poster = await this.toBase64(this.form.value.poster.files[0]);
 
-      this.http.post("/api/insertNews", this.news).subscribe(res => {
+      this.newService.insertNews(this.news).subscribe(res => {
         this.closeDialog(true);
       });
     }

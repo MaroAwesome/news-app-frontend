@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { RouterLinkActive, ActivatedRoute } from "@angular/router";
-import { HttpClient } from "@angular/common/http";
 import { MatSliderChange } from "@angular/material/slider";
+import { NewsAPIsService } from "../news-apis.service";
 
 @Component({
   selector: "app-news-display",
@@ -9,7 +9,10 @@ import { MatSliderChange } from "@angular/material/slider";
   styleUrls: ["./news-display.component.scss"]
 })
 export class NewsDisplayComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(
+    private route: ActivatedRoute,
+    private newsService: NewsAPIsService
+  ) {}
   public news;
   public fontSize = 20;
   ngOnInit() {
@@ -19,7 +22,7 @@ export class NewsDisplayComponent implements OnInit {
   getNews() {
     let id = this.route.snapshot.params.id;
 
-    this.http.get("/api/get/" + id).subscribe(res => {
+    this.newsService.getByID(id).subscribe(res => {
       this.news = res;
     });
   }
