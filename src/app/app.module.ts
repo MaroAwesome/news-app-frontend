@@ -12,6 +12,7 @@ import { MaterialModule } from "./material/material.module";
 import { NewsDisplayComponent } from "./news-display/news-display.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AddNewsComponent } from "./add-news/add-news.component";
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AddNewsComponent } from "./add-news/add-news.component";
     HeadComponent,
     NewsCardComponent,
     NewsDisplayComponent,
-    AddNewsComponent
+    AddNewsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
