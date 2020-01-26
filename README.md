@@ -1,3 +1,7 @@
+# news-app-frontend
+
+this is the code for the news app required as test from Future Work company
+
 # News
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.22.
@@ -24,4 +28,4 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+# To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
