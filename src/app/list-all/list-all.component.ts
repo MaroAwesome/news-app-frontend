@@ -17,15 +17,17 @@ export class ListAllComponent implements OnInit {
 
   getNews() {
     this.news = [];
-    this.http.get("api/getAll").subscribe(
-      res => {
-        console.log(res);
-        this.news = res;
-      },
-      err => {
-        console.log(err);
-      }
-    );
+    this.http
+      .get("ec2-18-188-196-102.us-east-2.compute.amazonaws.com/getAll")
+      .subscribe(
+        res => {
+          console.log(res);
+          this.news = res;
+        },
+        err => {
+          console.log(err);
+        }
+      );
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(AddNewsComponent, {
