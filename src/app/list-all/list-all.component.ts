@@ -18,7 +18,7 @@ export class ListAllComponent implements OnInit {
   getNews() {
     this.news = [];
     this.http
-      .get("http://ec2-18-188-196-102.us-east-2.compute.amazonaws.com/getAll")
+      .get("https://ec2-18-188-196-102.us-east-2.compute.amazonaws.com/getAll")
       .subscribe(
         res => {
           console.log(res);
